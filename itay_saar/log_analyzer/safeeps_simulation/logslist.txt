@@ -1,0 +1,5 @@
+./clean_log/clean_log_parsed_la.txt,Vanilla DQN (eps 0.05 eval)
+./safeeps_simulation/sim2017-02-24_18_43_final_log.txt.0.05_notsmart.txt,Smarteps dump 3 lowest (eps 0.05 no smarteps eval)
+./safeeps_simulation/sim2017-02-24_18_43_final_log.txt.0.05_smart_3lowest.txt,Smarteps dump 3 lowest (eps 0.05 smarteps 3 lowest eval)
+./safeeps_simulation/sim2017-02-24_18_43_final_log.txt.0.10_smart_3lowest.txt,Smarteps dump 3 lowest (eps 0.10 smarteps 3 lowest eval)
+./safeeps_simulation/sim2017-02-24_18_43_final_log.txt.0.10_smart_exp1.txt,Smarteps dump 3 lowest (eps 0.05 smarteps exp1 eval)
