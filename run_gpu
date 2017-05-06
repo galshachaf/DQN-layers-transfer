@@ -1,10 +1,21 @@
 #!/bin/bash
 
-if [ -z "$1" ]
-  then echo "Please provide the name of the game, e.g.  ./run_gpu breakout "; exit 0
-fi
-ENV=$1
-FRAMEWORK="alewrap"
+# parse config file
+config_file = "config"
+
+IFS="="
+while read -r name value
+do
+$"$name" = "$value";
+done < config_file
+
+echo $TEST
+
+# if [ -z "$1" ]
+#   then echo "Please provide the name of the game, e.g.  ./run_gpu breakout "; exit 0
+# fi
+# ENV=$1
+# FRAMEWORK="alewrap"
 
 game_path=$PWD"/roms/"
 env_params="useRGB=true"
