@@ -60,6 +60,10 @@ function nql:__init(args)
     self.nonTermProb    = args.nonTermProb or 1
     self.bufferSize     = args.bufferSize or 512
 
+    self.teacher_net    = args.teacher_net
+    self.first_layer    = args.first_layer or 0
+    self.last_layer    = args.last_layer or 0
+    
     self.transition_params = args.transition_params or {}
 
     self.network    = args.network or self:createNetwork()
