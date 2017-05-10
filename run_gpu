@@ -1,21 +1,95 @@
 #!/bin/bash
 
-# parse config file
-config_file = "config"
-
-IFS="="
-while read -r name value
-do
-$"$name" = "$value";
-done < config_file
-
-echo $TEST
+# # parse config file
+# config_file = "config"
+#
+# IFS="="
+# while read -r name value
+# do
+# $"$name" = "$value";
+# done < config_file
+#
+# echo $TEST
 
 # if [ -z "$1" ]
 #   then echo "Please provide the name of the game, e.g.  ./run_gpu breakout "; exit 0
 # fi
-# ENV=$1
-# FRAMEWORK="alewrap"
+
+FRAMEWORK="alewrap"
+# Project Arguments
+
+# game environment
+ENV="qbert"
+# change LVnum colour to LVnum colour
+LVL1COLOR=1
+LVL2COLOR=2
+LVL3COLOR=3
+LVL4COLOR=4
+LVL5COLOR=5
+HIDE_SCORE_PXLS_SI=0
+
+# how many agents in total?
+AGENTSNUM=1
+
+# which agent level learns which level
+LVL1AGENT=1
+LVL2AGENT=1
+LVL3AGENT=1
+LVL4AGENT=1
+LVL4AGENT=1
+LVL5AGENT=1
+LVL6AGENT=1
+LVL7AGENT=1
+
+# if 1, learns the level. if not, uses value as epsilon
+LVL1LEARN=1
+LVL2LEARN=1
+LVL3LEARN=1
+LVL4LEARN=1
+LVL5LEARN=1
+LVL6LEARN=1
+LVL7LEARN=1
+
+# pretrained net files for each agent
+declare -a agents_nets
+agents_nets[1]="NO_NETWORK"
+agents_nets[2]="NO_NETWORK"
+agents_nets[3]="NO_NETWORK"
+agents_nets[4]="NO_NETWORK"
+agents_nets[5]="NO_NETWORK"
+agents_nets[6]="NO_NETWORK"
+agents_nets[7]="NO_NETWORK"
+
+# epsilon values for each agent
+
+declare -a agents_epsstart
+agents_epsstart[1]=1
+agents_epsstart[2]=1
+agents_epsstart[3]=1
+agents_epsstart[4]=1
+agents_epsstart[5]=1
+agents_epsstart[6]=1
+agents_epsstart[7]=1
+
+replay_memory=$((1000000/$AGENTSNUM))
+
+# if set to 1, TODO - add description
+si_split_agents=0
+# Skills in the network? 1 for yes, 0 for no
+si_skillplay=0
+# play the new game? 1 for yes, 0 for no
+si_ngame=0
+# which gpu to use? 0 for both.
+gpu=0
+
+# Evalutation Arguments
+
+# Evaluation Epsilon
+eval_epsilon=0.05
+# Evaluation only mode? 0 for no evaluation, else - number of evaluation
+eval_only_num=0
+# debug logs
+debug_prints_val=0
 
 game_path=$PWD"/roms/"
 env_params="useRGB=true"
